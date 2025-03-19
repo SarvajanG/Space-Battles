@@ -17,7 +17,7 @@ class Shop:
         for item, cost in self.items.items():
             print(f'{item}: {cost} solons')
 
-    def buyItem(self, player, itemName, inventory):
+    def buyItem(self, player, itemName):
         if itemName in self.items:
             cost = self.items[itemName]
             if player.wallet >= cost:
@@ -26,7 +26,7 @@ class Shop:
                     player.ultimates.append(itemName)
                     print(f'{itemName} purchased and added to ultimates')
                 else:
-                    inventory.addItem(itemName)
+                    player.inventory.addItem(itemName)
                     print(f'{itemName} purchased and added to inventory')
             else:
                 print("Insufficient solons")

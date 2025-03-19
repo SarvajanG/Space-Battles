@@ -1,11 +1,11 @@
 import json
 
-def saveGame(player, inventory, filename="savegame.json"):
+def saveGame(player, filename="savegame.json"):
     gameState = {
         "name": player.name,
         "health": player.health,
         "attack": player.attack,
-        "inventory": inventory.items,
+        "inventory": player.inventory.items,
         "wallet": player.wallet,
         "shield": player.shield,
         "starEnergy": player.starEnergy,

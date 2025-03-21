@@ -1,6 +1,8 @@
-class Ultimate:
-    def __init__(self, name, strength):
-        self.name = name
+from item import Item
+
+class Ultimate(Item):
+    def __init__(self, name, cost, strength):
+        super().__init__(name, cost)
         self.strength = strength
 
     def useUltimate(self, player, target):
@@ -11,5 +13,3 @@ class Ultimate:
         else:
             print(f'Star energy depleted for this battle')
 
-flameBeam = Ultimate("Flame Beam", 100)
-iceShards = Ultimate("Ice Shards", 120)

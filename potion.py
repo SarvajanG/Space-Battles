@@ -1,6 +1,8 @@
-class Potion:
-    def __init__(self, name, strength, type):
-        self.name = name
+from item import Item
+
+class Potion(Item):
+    def __init__(self, name, cost, strength, type):
+        super().__init__(name, cost)
         self.strength = strength
         self.type = type
 
@@ -12,5 +14,3 @@ class Potion:
             player.attack += self.strength
             print(f'Consumed {self.name}, attack increased by {self.strength}')
 
-healthPotion = Potion("Health Potion", 50, "health")
-attackPotion = Potion("Attack Potion", 25, "attack")

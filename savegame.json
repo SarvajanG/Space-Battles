@@ -1,1 +1,1 @@
-{"name": "s", "health": 380, "attack": 50, "inventory": ["test1", "test2"], "wallet": 0, "shield": 0, "starEnergy": 1, "ultimates": []}
+{"name": "Shadow", "health": 500, "attack": 50, "inventory": [], "wallet": 0, "shield": 0, "starEnergy": 1, "ultimates": []}

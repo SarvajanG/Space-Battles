@@ -1,21 +1,23 @@
-from potion import healthPotion, attackPotion
-from shield import miniShield, mediumShield
-from ultimate import flameBeam, iceShards
+from item import Item
+from potion import Potion
+from shield import Shield
+from ultimate import Ultimate
+
 class Shop:
     def __init__(self):
-        self.items = {"Plasma Blaster": 25,
-                      "Chrono Sword": 100,
-                      healthPotion.name: 50,
-                      attackPotion.name: 50,
-                      miniShield.name: 25,
-                      mediumShield.name: 50,
-                      flameBeam.name: 200,
-                      iceShards.name: 250}
+        self.items = [Item("Plasma Blaster", 25),
+                      Item("Chrono Sword", 100),
+                      Potion("Health Potion", 50, 50, "health"), 
+                      Potion("Attack Potion", 50, 25, "attack"), 
+                      Shield("Mini Shield", 25, 25), 
+                      Shield("Medium Shield", 50, 50),
+                      Ultimate("Flame Beam", 200, 100), 
+                      Ultimate("Ice Shards", 250, 120)]
         
     def displayShop(self):
         print("Shop Items:")
-        for item, cost in self.items.items():
-            print(f'{item}: {cost} solons')
+        for item in self.items:
+            print(f'{item.name}: {item.cost} solons')
 
     def buyItem(self, player, itemName):
         if itemName in self.items:

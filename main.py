@@ -24,7 +24,10 @@ while(player.isAlive() and alien.isAlive()):
     elif choice == 4:
         saveGame(player)
     elif choice == 5:
-        loadGame()
+        loadGame(player)
+    elif choice == 6:
+        print("Thanks for playing, the universe awaits your return!")
+        break
 if player.isAlive():
     print("Victory")
 else:

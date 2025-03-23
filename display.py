@@ -8,6 +8,7 @@ def displayChoices():
     print("3. View Shop")
     print("4. Save Game")
     print("5. Load Game")
+    print("6. Quit Game")
 
 def displayStats(entity):
     print(f'{entity.name}:')

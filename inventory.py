@@ -12,3 +12,6 @@ class Inventory:
             print(f'Deleted {item} from inventory')
         else:
             print(f'{item} not in inventory')
+
+    def clear(self):
+        self.items.clear()

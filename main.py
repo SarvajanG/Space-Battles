@@ -20,7 +20,7 @@ while(player.isAlive() and alien.isAlive()):
     elif choice == 2:
         displayInventory(player.inventory)
     elif choice == 3:
-        shop.displayShop()
+        shop.displayShop(player)
     elif choice == 4:
         saveGame(player)
     elif choice == 5:

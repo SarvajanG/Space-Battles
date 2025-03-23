@@ -14,23 +14,40 @@ class Shop:
                       Ultimate("Flame Beam", 200, 100), 
                       Ultimate("Ice Shards", 250, 120)]
         
-    def displayShop(self):
-        print("Shop Items:")
-        for item in self.items:
-            print(f'{item.name}: {item.cost} solons')
+    def displayShop(self, player):
+        while True:
+            print("Shop Items:")
+            shopIndex = 1
+            for item in self.items:
+                print(f'{shopIndex}. {item.name}: {item.cost} solons')
+                shopIndex += 1
+            print("1. Buy")
+            print("2. Exit")
+            choice = int(input())
+            if choice == 1:
+                while True:
+                    item = int(input("Enter item number: "))
+                    if item > 0 and item <= len(self.items):
+                        self.buyItem(player, self.items[item - 1])
+                        break
+                    else:
+                        print("Item not available in this sector of the universe")
+            elif choice == 2:
+                print("Exited shop")
+                break
+            else:
+                print("Invalid Option")
 
-    def buyItem(self, player, itemName):
-        if itemName in self.items:
-            cost = self.items[itemName]
+    def buyItem(self, player, item):
+            cost = item.cost
             if player.wallet >= cost:
                 player.wallet -= cost
-                if cost > 200:
-                    player.ultimates.append(itemName)
-                    print(f'{itemName} purchased and added to ultimates')
+                if cost >= 200:
+                    player.ultimates.append(item.name)
+                    print(f'{item.name} purchased and added to ultimates')
                 else:
-                    player.inventory.addItem(itemName)
-                    print(f'{itemName} purchased and added to inventory')
+                    player.inventory.addItem(item.name)
+                    print(f'{item.name} purchased and added to inventory')
             else:
                 print("Insufficient solons")
-        else:
-            print("Item not available in this sector of the universe")
+            
